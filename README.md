@@ -7,7 +7,7 @@ Once known for its stores located around the world, Rockbuster Stealth LLC is no
 
 ## Data
 The dataset contains information about Rockbuster's film inventory, customer profiles, and transactions with timestamps. 
-- ERD link to image 
+- [ERD of Rockbuster Database](https://github.com/TanaTamaki/SQL-Rockbuster_Stealth_Analysis/blob/main/Rockbuster%20ERD.png) 
 
 ## Tools 
 - pgAdmin 4
