@@ -9,7 +9,7 @@ INNER JOIN city ON address.city_id = city.city_id
 INNER JOIN country AS ctry ON city.country_id = ctry.country_id
 GROUP BY ctry.country, ctry.country_id
 ORDER BY COUNT(customer_id) DESC
-LIMIT 10
+LIMIT 10;
 
 -- Finding the top 10 cities in the top 10 countries based on customer count:
 
@@ -25,7 +25,7 @@ INNER JOIN country AS ctry ON cty.country_id = ctry.country_id
 WHERE ctry.country_id IN (44, 23, 103, 50, 60, 15, 80, 75, 97, 45)
 GROUP BY ctry.country, ctry.country_id, cty.city, cty.city_id
 ORDER BY COUNT(customer_id) DESC
-LIMIT 10
+LIMIT 10;
 
 -- Finding the top 5 customers from the top 10 cities who've paid the highest amounts:
 
@@ -43,7 +43,7 @@ INNER JOIN country AS ctry ON cty.country_id = ctry.country_id
 WHERE cty.city_id IN (42, 317, 106, 187, 283, 257, 205, 557, 310, 418)
 GROUP BY cust.customer_id,cust.first_name,cust.last_name,cty.city,cty.city_id,ctry.country,ctry.country_id
 ORDER BY (total_payment) DESC
-LIMIT 5
+LIMIT 5;
 
 -- (subquery) Finding the average amount paid by the top 5 customers:
 
@@ -63,7 +63,7 @@ INNER JOIN country AS ctry ON cty.country_id = ctry.country_id
 WHERE cty.city_id IN (42, 317, 106, 187, 283, 257, 205, 557, 310, 418)
 GROUP BY cust.customer_id,cust.first_name,cust.last_name,cty.city,cty.city_id,ctry.country,ctry.country_id
 ORDER BY (total_payment) DESC
-LIMIT 5) AS average
+LIMIT 5) AS average;
 
 -- (subquery) Finding how many of the top 5 customers are based in each country:
 
@@ -92,6 +92,6 @@ ORDER BY (total_payment) DESC
 LIMIT 5) AS top_five_customers ON top_five_customers.country = ctryA.country
 GROUP BY ctryA.country, ctryA.country_id
 HAVING COUNT (DISTINCT top_five_customers.customer_id) > 0
-ORDER BY top_customer_count DESC, all_customer_count DESC
+ORDER BY top_customer_count DESC, all_customer_count DESC;
 
 
